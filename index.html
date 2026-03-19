@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaaradi Web Studio | Premium Web Solutions</title>
+    <link rel="icon" type="image/png" href="icon.png?v=2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#8b5cf6',
+                        accent: '#22d3ee',
+                        'bg-dark': '#0f172a',
+                        'bg-light': '#f5f7fb'
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="data.js"></script>
+    <script src="services.js"></script>
+    <style>
+/* HERO WORD REVEAL */
+.hero-word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(60px) rotateX(-20deg);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hero-word.visible {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+}
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-black dark:text-slate-100 transition-colors duration-300">
+    <header id="main-header"></header>
+    
+    <main>
+        <div id="hero"></div>
+        <section id="services-preview"></section>
+        
+        <!-- Mid-page CTA Section -->
+        <section id="home-cta" class="py-20 px-6">
+            <div class="max-w-[900px] mx-auto text-center py-20 px-8 rounded-3xl bg-gradient-to-br from-blue-600 to-violet-700 shadow-2xl shadow-blue-500/25 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                <div class="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+                <div class="relative z-10">
+                    <p class="text-blue-200 text-xs font-black uppercase tracking-widest mb-4">Ready to grow?</p>
+                    <h2 class="text-3xl md:text-4xl font-black text-white mb-4">Your website should be working<br>as hard as you do</h2>
+                    <p class="text-blue-100 text-lg mb-10 max-w-lg mx-auto">Let's build a site that turns visitors into paying customers — delivered in 30 days.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="contact.html" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-700 font-black rounded-full hover:bg-blue-50 hover:-translate-y-1 transition-all shadow-lg">
+                            <i class="fa-solid fa-rocket"></i> Start Your Project
+                        </a>
+                        <a href="contact.html" class="inline-flex items-center gap-2 px-8 py-4 border-2 border-white/50 text-white font-black rounded-full hover:bg-white/10 hover:-translate-y-1 transition-all">
+                            <i class="fa-solid fa-phone-volume"></i> Get Free Consultation
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script>
+function renderHero() {
+    const hero = document.getElementById('hero');
+    if (!hero) return;
+
+    hero.innerHTML = `
+        <div class="min-h-[90vh] flex flex-col justify-center items-center text-center px-6 md:px-16 relative overflow-hidden transition-colors duration-300 py-24">
+            <!-- Radial glow -->
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(59,130,246,0.18)_0%,_transparent_65%)] dark:bg-[radial-gradient(ellipse_at_top,_rgba(59,130,246,0.12)_0%,_transparent_65%)]"></div>
+            <!-- Floating orbs -->
+            <div class="float-slow absolute top-20 left-[10%] w-48 h-48 rounded-full bg-blue-400/10 dark:bg-blue-500/10 blur-3xl pointer-events-none"></div>
+            <div class="float-mid absolute bottom-20 right-[8%] w-64 h-64 rounded-full bg-violet-400/10 dark:bg-violet-500/10 blur-3xl pointer-events-none"></div>
+            <div class="float-slow absolute top-1/2 left-[60%] w-32 h-32 rounded-full bg-blue-300/10 blur-2xl pointer-events-none" style="animation-delay:-3s"></div>
+            <!-- Grid pattern -->
+            <div class="absolute inset-0 opacity-[0.03] dark:opacity-[0.06]" style="background-image:url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%236366f1\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')"></div>
+
+            <!-- Accepting badge -->
+            <div class="hero-word relative z-10 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800 text-blue-600 dark:text-blue-400 text-xs font-black uppercase tracking-widest mb-8">
+                <span class="w-2 h-2 rounded-full bg-blue-500 inline-block animate-pulse"></span>
+                Accepting New Clients &middot; 2025
+            </div>
+
+            <!-- Main Headline (words animate in individually) -->
+            <h1 class="relative z-10 text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[1.05] tracking-tighter dark:text-white mb-6 max-w-5xl">
+                <span class="hero-word inline">We build websites&nbsp;</span><span class="hero-word inline">that<br class="hidden sm:block">&nbsp;</span><span class="hero-word text-shimmer">generate leads &amp; sales</span><br class="hidden sm:block"><span class="hero-word inline">&nbsp;for your business in 30 days</span>
+            </h1>
+
+            <!-- Sub text -->
+            <p class="hero-word relative z-10 text-lg md:text-xl text-gray-600 dark:text-slate-400 max-w-2xl mb-12 leading-relaxed font-medium">
+                ${siteData.tagline}. No templates. No fluff. Just results.
+            </p>
+
+            <!-- CTA buttons -->
+            <div class="hero-word relative z-10 flex flex-col sm:flex-row gap-4 mb-16">
+                <a href="contact.html" class="btn-pulse group px-10 py-4 rounded-full bg-gradient-to-r from-blue-600 to-violet-600 text-white font-black text-base shadow-xl shadow-blue-500/25 hover:shadow-blue-500/50 hover:-translate-y-1.5 transition-all duration-300 flex items-center gap-2">
+                    <i class="fa-solid fa-rocket text-sm transition-transform group-hover:rotate-12 group-hover:scale-125"></i>
+                    Get Your Website
+                </a>
+                <a href="portfolio.html" class="group px-10 py-4 rounded-full border-2 border-gray-200 dark:border-slate-700 text-gray-700 dark:text-slate-300 font-black text-base hover:border-blue-500 dark:hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 hover:-translate-y-1.5 transition-all duration-300 flex items-center gap-2 bg-white dark:bg-black">
+                    <i class="fa-solid fa-eye text-sm transition-transform group-hover:scale-125"></i>
+                    View Our Work
+                </a>
+            </div>
+
+            <!-- Social proof -->
+            <div class="relative z-10 flex flex-wrap justify-center gap-6 md:gap-10 text-sm font-bold">
+                <div class="hero-word flex items-center gap-2 text-gray-500 dark:text-slate-400">
+                    <i class="fa-solid fa-check-circle text-green-500"></i><span>10+ Projects Delivered</span>
+                </div>
+                <div class="hero-word flex items-center gap-2 text-gray-500 dark:text-slate-400">
+                    <i class="fa-solid fa-check-circle text-green-500"></i><span>30-Day Delivery Guarantee</span>
+                </div>
+                <div class="hero-word flex items-center gap-2 text-gray-500 dark:text-slate-400">
+                    <i class="fa-solid fa-check-circle text-green-500"></i><span>100% Satisfaction Promised</span>
+                </div>
+            </div>
+        </div>
+    `;
+
+    // Stagger hero-word animations after load
+    setTimeout(() => {
+        document.querySelectorAll('.hero-word').forEach((el, i) => {
+            setTimeout(() => el.classList.add('visible'), i * 120);
+        });
+    }, 700);
+}
+
+function renderServicesPreview() {
+    const container = document.getElementById('services-preview');
+    if (!container) return;
+
+    const previewData = servicesData.slice(0, 3);
+
+    container.innerHTML = `
+        <div class="max-w-[1100px] mx-auto px-5 py-24">
+            <div class="reveal text-center mb-16 space-y-4">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800 text-blue-600 dark:text-blue-400 text-xs font-black uppercase tracking-widest">
+                    <i class="fa-solid fa-layer-group"></i> What We Do
+                </div>
+                <h2 class="text-4xl font-black dark:text-white tracking-tight">Our Core Expertise</h2>
+                <p class="text-gray-600 dark:text-slate-400 max-w-xl mx-auto">High-quality digital solutions tailored to grow your business.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                ${previewData.map((cat, i) => `
+                    <a href="services.html" class="block card-tilt reveal reveal-delay-${i+1} group p-8 rounded-3xl bg-white dark:bg-slate-800/50 border border-gray-100 dark:border-slate-800 hover:border-blue-500/50 shadow-xl shadow-gray-200/50 dark:shadow-none cursor-pointer outline-none focus:ring-2 focus:ring-blue-500 transition-all">
+                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-600 to-violet-600 flex items-center justify-center text-white shadow-lg mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fa-solid fa-${i === 0 ? 'code' : i === 1 ? 'cart-shopping' : 'gears'}"></i>
+                        </div>
+                        <h3 class="text-xl font-black mb-3 dark:text-white group-hover:text-blue-500 transition-colors">${cat.category}</h3>
+                        <p class="text-gray-600 dark:text-slate-400 mb-6 line-clamp-3 leading-relaxed text-sm">${cat.description.replace(/<\/?[^>]+(>|$)/g, "")}</p>
+                        <ul class="space-y-2.5 mb-2">
+                            ${cat.items.map(item => `<li class="flex items-center gap-2 text-sm text-gray-600 dark:text-slate-400"><i class="fa-solid fa-check text-blue-500"></i>${item.title}</li>`).slice(0, 3).join('')}
+                        </ul>
+                    </a>
+                `).join('')}
+            </div>
+        </div>
+    `;
+}
+
+renderHero();
+renderServicesPreview();
+    </script>
+    </main>
+
+
+    <footer id="main-footer"></footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

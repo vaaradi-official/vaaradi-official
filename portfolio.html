@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Vaaradi Web Studio</title>
+    <link rel="icon" type="image/png" href="icon.png?v=2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#8b5cf6',
+                        accent: '#22d3ee',
+                        'bg-dark': '#0f172a',
+                        'bg-light': '#f5f7fb'
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="data.js"></script>
+    <script src="projects.js"></script>
+    <script src="services.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-black dark:text-slate-100 transition-colors duration-300">
+    <header id="main-header"></header>
+    
+    <main>
+        <section class="pt-10">
+            <div id="portfolio-grid"></div>
+        </section>
+        <script>
+function renderPortfolio() {
+    const container = document.getElementById('portfolio-grid');
+    if (!container) return;
+
+    const works = worksData;
+
+    const whatsappNumber = siteData.phone.replace(/[^\d]/g, '');
+    const whatsappMsg = encodeURIComponent('Hi! I loved your portfolio. Can we discuss building my website?');
+
+    container.innerHTML = `
+        <div class="max-w-[1100px] mx-auto px-5">
+            <!-- Section Header -->
+            <div class="reveal text-center mb-16 space-y-4">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800 text-blue-600 dark:text-blue-400 text-xs font-black uppercase tracking-widest">
+                    <i class="fa-solid fa-star"></i> Real Results, Real Clients
+                </div>
+                <h1 class="text-4xl md:text-5xl font-black dark:text-white tracking-tight">Our Work Speaks for Itself</h1>
+                <p class="text-lg text-gray-500 dark:text-slate-400 max-w-2xl mx-auto">Every project solves a real business problem. Here's the proof.</p>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+                ${works.map((work, i) => `
+                    <div class="reveal reveal-scale reveal-delay-${(i % 3) + 1} group flex flex-col rounded-3xl border border-gray-200 dark:border-slate-800 overflow-hidden hover:border-blue-500/50 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 bg-white dark:bg-slate-800/50">
+                        <!-- Image -->
+                        <div class="relative overflow-hidden h-52 shrink-0">
+                            <a href="${work.link}" target="_blank" rel="noopener">
+                                <img src="${work.img}" alt="${work.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            </a>
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/50 to-transparent pointer-events-none"></div>
+                            <span class="absolute bottom-4 left-4 text-xs font-black text-white uppercase tracking-widest bg-blue-600 px-3 py-1 rounded-full">${work.cat}</span>
+                        </div>
+                        <!-- Content -->
+                        <div class="flex flex-col flex-1 p-7 space-y-5">
+                            <h3 class="text-xl font-black dark:text-white group-hover:text-blue-500 transition-colors">
+                                <a href="${work.link}" target="_blank" rel="noopener">${work.title}</a>
+                            </h3>
+                            <!-- Problem / Solution / Result -->
+                            <div class="space-y-3 text-sm flex-1">
+                                <div class="flex items-start gap-3">
+                                    <span class="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center">
+                                        <i class="fa-solid fa-xmark text-red-500 text-xs"></i>
+                                    </span>
+                                    <div>
+                                        <p class="text-[10px] font-black uppercase tracking-widest text-red-400 mb-0.5">Problem</p>
+                                        <p class="text-gray-600 dark:text-slate-400 leading-snug">${work.problem}</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <span class="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
+                                        <i class="fa-solid fa-lightbulb text-blue-500 text-xs"></i>
+                                    </span>
+                                    <div>
+                                        <p class="text-[10px] font-black uppercase tracking-widest text-blue-400 mb-0.5">Solution</p>
+                                        <p class="text-gray-600 dark:text-slate-400 leading-snug">${work.solution}</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <span class="mt-0.5 flex-shrink-0 w-6 h-6 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
+                                        <i class="fa-solid fa-arrow-trend-up text-green-500 text-xs"></i>
+                                    </span>
+                                    <div>
+                                        <p class="text-[10px] font-black uppercase tracking-widest text-green-500 mb-0.5">Result</p>
+                                        <p class="text-gray-700 dark:text-slate-300 font-bold leading-snug">${work.result}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+
+            <!-- Portfolio CTA -->
+            <div class="text-center py-16 px-8 rounded-3xl bg-gradient-to-br from-blue-600 to-violet-700 shadow-2xl shadow-blue-500/20 mb-20">
+                <h2 class="text-3xl md:text-4xl font-black text-white mb-4">Ready to Get Results Like These?</h2>
+                <p class="text-blue-100 text-lg mb-8 max-w-xl mx-auto">Let's discuss your project and craft a website that actually grows your business.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="contact.html" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-700 font-black rounded-full hover:bg-blue-50 hover:-translate-y-1 transition-all shadow-lg">
+                        <i class="fa-solid fa-rocket"></i> Start Your Project
+                    </a>
+                    <a href="https://wa.me/${whatsappNumber}?text=${whatsappMsg}" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-8 py-4 bg-green-500 hover:bg-green-400 text-white font-black rounded-full hover:-translate-y-1 transition-all shadow-lg">
+                        <i class="fa-brands fa-whatsapp text-xl"></i> Message on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+renderPortfolio();
+    </script>
+    </main>
+
+
+    <footer id="main-footer"></footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

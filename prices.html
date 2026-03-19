@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing | Vaaradi Web Studio</title>
+    <meta name="description" content="Transparent, results-driven website pricing for small businesses. From ₹7,000 starter sites to enterprise platforms. 30-day delivery guaranteed.">
+    <link rel="icon" type="image/png" href="icon.png?v=2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#8b5cf6',
+                        accent: '#22d3ee',
+                        'bg-dark': '#0f172a',
+                        'bg-light': '#f5f7fb'
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="data.js"></script>
+    <script src="services.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-black dark:text-slate-100 transition-colors duration-300">
+    <header id="main-header"></header>
+
+    <main>
+        <!-- Page Header -->
+        <div class="max-w-[1100px] mx-auto px-6 pt-24 pb-12 text-center space-y-5">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800 text-blue-600 dark:text-blue-400 text-xs font-black uppercase tracking-widest">
+                <i class="fa-solid fa-tags"></i> Simple, Honest Pricing
+            </div>
+            <h1 class="text-4xl md:text-6xl font-black tracking-tighter dark:text-white leading-tight">
+                Investment That Pays<br>
+                <span class="bg-gradient-to-r from-blue-600 to-violet-500 bg-clip-text text-transparent">For Itself</span>
+            </h1>
+            <p class="text-xl text-gray-500 dark:text-slate-400 max-w-2xl mx-auto">
+                No hidden fees. No surprises. Every plan is designed to grow your business — not just look good.
+            </p>
+        </div>
+
+        <!-- ─────────────────────────────────────────
+             STATIC WEBSITE PACKAGES
+        ───────────────────────────────────────── -->
+        <section class="max-w-[1100px] mx-auto px-6 pb-24">
+            <div class="mb-12 space-y-2">
+                <h2 class="text-3xl font-black dark:text-white">Static Website Packages</h2>
+                <p class="text-gray-500 dark:text-slate-400 max-w-2xl">
+                    A beautifully designed website that tells your story, builds trust, and converts visitors into customers — without needing a database or logins.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                <!-- Starter -->
+                <div class="relative flex flex-col p-8 rounded-3xl bg-white dark:bg-slate-800/50 border border-gray-200 dark:border-slate-700 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    <div class="mb-6">
+                        <div class="w-11 h-11 rounded-xl bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-seedling text-blue-600 text-lg"></i>
+                        </div>
+                        <h3 class="text-xl font-black dark:text-white mb-1">Starter Website</h3>
+                        <p class="text-sm text-gray-500 dark:text-slate-400">Perfect for new businesses getting online fast</p>
+                    </div>
+                    <div class="mb-8">
+                        <span class="text-4xl font-black dark:text-white">₹7,000</span>
+                        <span class="text-gray-400 text-sm ml-1">starting from</span>
+                    </div>
+                    <ul class="space-y-3 flex-1 mb-8">
+                        <li class="flex items-start gap-3 text-sm">
+                            <i class="fa-solid fa-circle-check text-green-500 mt-0.5 shrink-0"></i>
+                            <span class="text-gray-700 dark:text-slate-300"><strong>3–5 pages</strong> — so customers can find what they need instantly</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm">
+                            <i class="fa-solid fa-circle-check text-green-500 mt-0.5 shrink-0"></i>
+                            <span class="text-gray-700 dark:text-slate-300"><strong>Works on phones</strong> — 70% of your customers browse on mobile</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm">
+                            <i class="fa-solid fa-circle-check text-green-500 mt-0.5 shrink-0"></i>
+                            <span class="text-gray-700 dark:text-slate-300"><strong>Contact form</strong> — so leads come to your inbox automatically</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm">
+                            <i class="fa-solid fa-circle-check text-green-500 mt-0.5 shrink-0"></i>
+                            <span class="text-gray-700 dark:text-slate-300"><strong>Google-ready</strong> — basic SEO so customers can find you</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm">
+                            <i class="fa-solid fa-circle-check text-green-500 mt-0.5 shrink-0"></i>
+                            <span class="text-gray-700 dark:text-slate-300"><strong>Live in 7 days</strong> — published and ready for business</span>
+                        </li>
+                    </ul>
+                    <a href="contact.html" class="block w-full text-center py-3.5 rounded-2xl border-2 border-blue-600 text-blue-600 dark:text-blue-400 font-black hover:bg-blue-600 hover:text-white transition-all">
+                        Start Your Project
+                    </a>
+                </div>
+
+                <!-- Business — MOST POPULAR -->
+                <div class="relative flex flex-col p-8 rounded-3xl bg-gradient-to-b from-blue-600 to-violet-700 border-0 shadow-2xl shadow-blue-500/30 hover:-translate-y-2 transition-all duration-300 scale-[1.02]">
+                    <!-- Badge -->
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2">
+                        <span class="inline-flex items-center gap-1.5 px-5 py-2 bg-yellow-400 text-yellow-950 text-xs font-black rounded-full uppercase tracking-widest shadow-lg">
+                            <i class="fa-solid fa-star text-[10px]"></i> Most Popular
+                        </span>
+                    </div>
+                    <div class="mb-6">
+                        <div class="w-11 h-11 rounded-xl bg-white/20 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-store text-white text-lg"></i>
+                        </div>
+                        <h3 class="text-xl font-black text-white mb-1">Business Website</h3>
+                        <p class="text-sm text-blue-100">The growth engine for serious businesses</p>
+                    </div>
+                    <div class="mb-8">
+                        <span class="text-4xl font-black text-white">₹20,000</span>
+                        <span class="text-blue-200 text-sm ml-1">starting from</span>
+                    </div>
+                    <ul class="space-y-3 flex-1 mb-8">
+                        <li class="flex items-start gap-3 text-sm">
+                            <i class="fa-solid fa-circle-check text-green-300 mt-0.5 shrink-0"></i>
+                            <span class="text-white"><strong>5–10 pages</strong> — showcase everything that makes you the best choice</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm">
+                            <i class="fa-solid fa-circle-check text-green-300 mt-0.5 shrink-0"></i>
+                            <span class="text-white"><strong>Premium design</strong> — builds instant trust and makes you look premium</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm">
+                            <i class="fa-solid fa-circle-check text-green-300 mt-0.5 shrink-0"></i>
+                            <span class="text-white"><strong>Speed optimised</strong> — fast sites rank higher and convert more</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm">
+                            <i class="fa-solid fa-circle-check text-green-300 mt-0.5 shrink-0"></i>
+                            <span class="text-white"><strong>Visitor tracking</strong> — know exactly who visits and how they found you</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm">
+                            <i class="fa-solid fa-circle-check text-green-300 mt-0.5 shrink-0"></i>
+                            <span class="text-white"><strong>SEO setup</strong> — appear on the first page of Google searches</span>
+                        </li>
+                    </ul>
+                    <a href="contact.html" class="block w-full text-center py-3.5 rounded-2xl bg-white text-blue-700 font-black hover:bg-blue-50 transition-all shadow-lg">
+                        Get Your Website
+                    </a>
+                </div>
+
+                <!-- Corporate -->
+                <div class="relative flex flex-col p-8 rounded-3xl bg-white dark:bg-slate-800/50 border border-gray-200 dark:border-slate-700 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    <div class="mb-6">
+                        <div class="w-11 h-11 rounded-xl bg-violet-100 dark:bg-violet-900/40 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-building text-violet-600 text-lg"></i>
+                        </div>
+                        <h3 class="text-xl font-black dark:text-white mb-1">Corporate Website</h3>
+                        <p class="text-sm text-gray-500 dark:text-slate-400">For established brands that demand the best</p>
+                    </div>
+                    <div class="mb-8">
+                        <span class="text-4xl font-black dark:text-white">₹40,000</span>
+                        <span class="text-gray-400 text-sm ml-1">starting from</span>
+                    </div>
+                    <ul class="space-y-3 flex-1 mb-8">
+                        <li class="flex items-start gap-3 text-sm">
+                            <i class="fa-solid fa-circle-check text-green-500 mt-0.5 shrink-0"></i>
+                            <span class="text-gray-700 dark:text-slate-300"><strong>Unique brand design</strong> — stands out from every competitor</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm">
+                            <i class="fa-solid fa-circle-check text-green-500 mt-0.5 shrink-0"></i>
+                            <span class="text-gray-700 dark:text-slate-300"><strong>Premium animations</strong> — makes visitors stop scrolling and pay attention</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm">
+                            <i class="fa-solid fa-circle-check text-green-500 mt-0.5 shrink-0"></i>
+                            <span class="text-gray-700 dark:text-slate-300"><strong>Lightning-fast load</strong> — sub-2s load time, Google loves it</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm">
+                            <i class="fa-solid fa-circle-check text-green-500 mt-0.5 shrink-0"></i>
+                            <span class="text-gray-700 dark:text-slate-300"><strong>Advanced analytics</strong> — track every visitor and conversion</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-sm">
+                            <i class="fa-solid fa-circle-check text-green-500 mt-0.5 shrink-0"></i>
+                            <span class="text-gray-700 dark:text-slate-300"><strong>Full SEO strategy</strong> — dominate local search rankings</span>
+                        </li>
+                    </ul>
+                    <a href="contact.html" class="block w-full text-center py-3.5 rounded-2xl border-2 border-violet-600 text-violet-600 dark:text-violet-400 font-black hover:bg-violet-600 hover:text-white transition-all">
+                        Start Your Project
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ─────────────────────────────────────────
+             WEB APP / DYNAMIC DEVELOPMENT
+        ───────────────────────────────────────── -->
+        <section class="bg-white dark:bg-black/50 py-24 border-y border-gray-100 dark:border-slate-800">
+            <div class="max-w-[1100px] mx-auto px-6">
+                <div class="mb-12 space-y-2">
+                    <h2 class="text-3xl font-black dark:text-white">Web Applications & Dynamic Platforms</h2>
+                    <p class="text-gray-500 dark:text-slate-400 max-w-2xl">
+                        Need user logins, dashboards, bookings, or a full business platform? We build it — scalable, secure, and built to grow with you.
+                    </p>
+                </div>
+                <div class="overflow-x-auto rounded-3xl border border-gray-200 dark:border-slate-800 shadow-sm">
+                    <table class="w-full text-left bg-white dark:bg-black">
+                        <thead>
+                            <tr class="bg-gray-50 dark:bg-slate-800">
+                                <th class="px-7 py-5 text-xs font-black uppercase tracking-widest text-gray-500 dark:text-slate-400 border-b border-gray-100 dark:border-slate-700">Package</th>
+                                <th class="px-7 py-5 text-xs font-black uppercase tracking-widest text-gray-500 dark:text-slate-400 border-b border-gray-100 dark:border-slate-700">Starting Price</th>
+                                <th class="px-7 py-5 text-xs font-black uppercase tracking-widest text-gray-500 dark:text-slate-400 border-b border-gray-100 dark:border-slate-700">What You Get</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100 dark:divide-slate-800">
+                            <tr class="hover:bg-gray-50/50 dark:hover:bg-slate-800/30 transition-colors">
+                                <td class="px-7 py-6">
+                                    <p class="font-black text-gray-900 dark:text-white">Startup MVP</p>
+                                    <p class="text-xs text-gray-400 mt-0.5">Ideal for new startups</p>
+                                </td>
+                                <td class="px-7 py-6 text-xl font-black text-blue-600 dark:text-blue-400">₹1,00,000</td>
+                                <td class="px-7 py-6 text-sm text-gray-600 dark:text-slate-400">Login system, database, backend logic — a working product you can pitch to investors or customers.</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50/50 dark:hover:bg-slate-800/30 transition-colors">
+                                <td class="px-7 py-6">
+                                    <p class="font-black text-gray-900 dark:text-white">Business Platform</p>
+                                    <p class="text-xs text-gray-400 mt-0.5">For growing businesses</p>
+                                </td>
+                                <td class="px-7 py-6 text-xl font-black text-blue-600 dark:text-blue-400">₹3,00,000</td>
+                                <td class="px-7 py-6 text-sm text-gray-600 dark:text-slate-400">Admin dashboard, user roles, third-party integrations — runs your entire operation automatically.</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50/50 dark:hover:bg-slate-800/30 transition-colors">
+                                <td class="px-7 py-6">
+                                    <p class="font-black text-gray-900 dark:text-white">Enterprise Platform</p>
+                                    <p class="text-xs text-gray-400 mt-0.5">High-traffic, complex systems</p>
+                                </td>
+                                <td class="px-7 py-6 text-xl font-black text-blue-600 dark:text-blue-400">₹10,00,000+</td>
+                                <td class="px-7 py-6 text-sm text-gray-600 dark:text-slate-400">Scalable architecture built for thousands of daily users and complex multi-department operations.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─────────────────────────────────────────
+             E-COMMERCE
+        ───────────────────────────────────────── -->
+        <section class="max-w-[1100px] mx-auto px-6 py-24">
+            <div class="mb-12 space-y-2">
+                <h2 class="text-3xl font-black dark:text-white">E‑Commerce Development</h2>
+                <p class="text-gray-500 dark:text-slate-400 max-w-2xl">
+                    Sell online 24/7 without hiring extra staff. We build stores that are easy to manage and designed to maximise your revenue.
+                </p>
+            </div>
+            <div class="overflow-x-auto rounded-3xl border border-gray-200 dark:border-slate-800 shadow-sm">
+                <table class="w-full text-left bg-white dark:bg-black">
+                    <thead>
+                        <tr class="bg-gray-50 dark:bg-slate-800">
+                            <th class="px-7 py-5 text-xs font-black uppercase tracking-widest text-gray-500 dark:text-slate-400 border-b border-gray-100 dark:border-slate-700">Package</th>
+                            <th class="px-7 py-5 text-xs font-black uppercase tracking-widest text-gray-500 dark:text-slate-400 border-b border-gray-100 dark:border-slate-700">Starting Price</th>
+                            <th class="px-7 py-5 text-xs font-black uppercase tracking-widest text-gray-500 dark:text-slate-400 border-b border-gray-100 dark:border-slate-700">What You Get</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100 dark:divide-slate-800">
+                        <tr class="hover:bg-gray-50/50 dark:hover:bg-slate-800/30 transition-colors">
+                            <td class="px-7 py-6">
+                                <p class="font-black text-gray-900 dark:text-white">Basic Online Store</p>
+                            </td>
+                            <td class="px-7 py-6 text-xl font-black text-blue-600 dark:text-blue-400">₹60,000</td>
+                            <td class="px-7 py-6 text-sm text-gray-600 dark:text-slate-400">Product pages, shopping cart, and online payments — start selling in weeks, not months.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50/50 dark:hover:bg-slate-800/30 transition-colors">
+                            <td class="px-7 py-6">
+                                <p class="font-black text-gray-900 dark:text-white">Professional Store</p>
+                            </td>
+                            <td class="px-7 py-6 text-xl font-black text-blue-600 dark:text-blue-400">₹1,20,000</td>
+                            <td class="px-7 py-6 text-sm text-gray-600 dark:text-slate-400">Inventory management, admin dashboard, order tracking — run your store like a pro, hands-free.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50/50 dark:hover:bg-slate-800/30 transition-colors">
+                            <td class="px-7 py-6">
+                                <p class="font-black text-gray-900 dark:text-white">Marketplace Platform</p>
+                            </td>
+                            <td class="px-7 py-6 text-xl font-black text-blue-600 dark:text-blue-400">₹2,50,000+</td>
+                            <td class="px-7 py-6 text-sm text-gray-600 dark:text-slate-400">Multi-vendor marketplace — let other sellers list on your platform and earn a commission.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ─────────────────────────────────────────
+             MAINTENANCE PLANS
+        ───────────────────────────────────────── -->
+        <section class="bg-white dark:bg-black/50 py-24 border-y border-gray-100 dark:border-slate-800">
+            <div class="max-w-[1100px] mx-auto px-6">
+                <div class="mb-12 space-y-2">
+                    <h2 class="text-3xl font-black dark:text-white">Maintenance & Growth Plans</h2>
+                    <p class="text-gray-500 dark:text-slate-400 max-w-2xl">
+                        Your website is a 24/7 salesperson. Keep it running fast, secure, and always improving with our monthly plans.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                    <div class="p-8 rounded-3xl bg-gray-50 dark:bg-slate-800/50 border border-gray-200 dark:border-slate-700 space-y-5">
+                        <div class="w-11 h-11 rounded-xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
+                            <i class="fa-solid fa-shield-halved text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-black dark:text-white">Basic Support</h3>
+                            <p class="text-2xl font-black text-blue-600 mt-2">₹2,000–₹5,000<span class="text-sm text-gray-400 font-normal">/mo</span></p>
+                        </div>
+                        <ul class="space-y-2 text-sm text-gray-600 dark:text-slate-400">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500 w-4"></i> Bug fixes on request</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500 w-4"></i> Website uptime monitoring</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500 w-4"></i> Monthly performance report</li>
+                        </ul>
+                    </div>
+
+                    <div class="p-8 rounded-3xl bg-blue-600 border-0 space-y-5 relative">
+                        <div class="absolute -top-3 right-6">
+                            <span class="text-[10px] font-black uppercase tracking-widest px-3 py-1.5 bg-yellow-400 text-yellow-900 rounded-full">Best Value</span>
+                        </div>
+                        <div class="w-11 h-11 rounded-xl bg-white/20 flex items-center justify-center">
+                            <i class="fa-solid fa-chart-line text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-black text-white">Business Support</h3>
+                            <p class="text-2xl font-black text-white mt-2">₹8,000–₹15,000<span class="text-sm text-blue-200 font-normal">/mo</span></p>
+                        </div>
+                        <ul class="space-y-2 text-sm text-blue-100">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-300 w-4"></i> Content & copy updates</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-300 w-4"></i> Speed & performance checks</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-300 w-4"></i> Minor UI improvements</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-300 w-4"></i> Priority email support</li>
+                        </ul>
+                    </div>
+
+                    <div class="p-8 rounded-3xl bg-gray-50 dark:bg-slate-800/50 border border-gray-200 dark:border-slate-700 space-y-5">
+                        <div class="w-11 h-11 rounded-xl bg-violet-100 dark:bg-violet-900/30 flex items-center justify-center">
+                            <i class="fa-solid fa-rocket text-violet-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-black dark:text-white">Premium Support</h3>
+                            <p class="text-2xl font-black text-blue-600 mt-2">₹20,000+<span class="text-sm text-gray-400 font-normal">/mo</span></p>
+                        </div>
+                        <ul class="space-y-2 text-sm text-gray-600 dark:text-slate-400">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500 w-4"></i> Dedicated account manager</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500 w-4"></i> New feature development</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500 w-4"></i> Priority 24hr response</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500 w-4"></i> Monthly strategy review</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ─────────────────────────────────────────
+             HOSTING & INFRASTRUCTURE
+        ───────────────────────────────────────── -->
+        <section class="max-w-[1100px] mx-auto px-6 py-24">
+            <div class="mb-12 space-y-2">
+                <h2 class="text-3xl font-black dark:text-white">Hosting & Infrastructure</h2>
+                <p class="text-gray-500 dark:text-slate-400 max-w-2xl">
+                    Hosting is what keeps your site live on the internet. We set it up right the first time — fast, secure, and always on.
+                </p>
+            </div>
+            <div class="overflow-x-auto rounded-3xl border border-gray-200 dark:border-slate-800 shadow-sm">
+                <table class="w-full text-left bg-white dark:bg-black">
+                    <thead>
+                        <tr class="bg-gray-50 dark:bg-slate-800">
+                            <th class="px-7 py-5 text-xs font-black uppercase tracking-widest text-gray-500 dark:text-slate-400 border-b border-gray-100 dark:border-slate-700">Service</th>
+                            <th class="px-7 py-5 text-xs font-black uppercase tracking-widest text-gray-500 dark:text-slate-400 border-b border-gray-100 dark:border-slate-700">Price</th>
+                            <th class="px-7 py-5 text-xs font-black uppercase tracking-widest text-gray-500 dark:text-slate-400 border-b border-gray-100 dark:border-slate-700">Why You Need It</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100 dark:divide-slate-800">
+                        <tr class="hover:bg-gray-50/50 dark:hover:bg-slate-800/30 transition-colors">
+                            <td class="px-7 py-6 font-black text-gray-900 dark:text-white">Domain Name</td>
+                            <td class="px-7 py-6 text-lg font-black text-blue-600 dark:text-blue-400">₹500–₹2,000/yr</td>
+                            <td class="px-7 py-6 text-sm text-gray-600 dark:text-slate-400">Your website address (e.g. yourbusiness.com) — this is how customers find you online.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50/50 dark:hover:bg-slate-800/30 transition-colors">
+                            <td class="px-7 py-6 font-black text-gray-900 dark:text-white">Cloud Hosting</td>
+                            <td class="px-7 py-6 text-lg font-black text-blue-600 dark:text-blue-400">₹3,000–₹10,000/yr</td>
+                            <td class="px-7 py-6 text-sm text-gray-600 dark:text-slate-400">The server that stores your site and makes it load fast for every visitor, everywhere.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50/50 dark:hover:bg-slate-800/30 transition-colors">
+                            <td class="px-7 py-6 font-black text-gray-900 dark:text-white">Deployment Setup</td>
+                            <td class="px-7 py-6 text-lg font-black text-blue-600 dark:text-blue-400">₹8,000+</td>
+                            <td class="px-7 py-6 text-sm text-gray-600 dark:text-slate-400">One-time technical setup so your site goes live properly — SSL certificate, CDN, and more.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ─────────────────────────────────────────
+             BOTTOM CTA SECTION
+        ───────────────────────────────────────── -->
+        <section class="max-w-[1100px] mx-auto px-6 pb-24">
+            <div class="text-center py-20 px-8 rounded-3xl bg-gradient-to-br from-slate-900 to-slate-800 dark:from-slate-800 dark:to-slate-900 shadow-2xl border border-slate-700 relative overflow-hidden">
+                <!-- Glow -->
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-40 bg-blue-600/20 blur-3xl rounded-full"></div>
+                <div class="relative z-10">
+                    <p class="text-blue-400 text-xs font-black uppercase tracking-widest mb-4">Still not sure which plan?</p>
+                    <h2 class="text-3xl md:text-4xl font-black text-white mb-4">Get a Free Consultation</h2>
+                    <p class="text-slate-400 text-lg mb-10 max-w-xl mx-auto">Tell us about your business and we'll recommend the perfect solution — no obligation, no hard sell.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="contact.html" class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-violet-600 text-white font-black rounded-full hover:-translate-y-1 transition-all shadow-lg shadow-blue-500/25">
+                            <i class="fa-solid fa-calendar-check"></i> Book Free Consultation
+                        </a>
+                        <a id="pricing-wa-cta" href="#" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-8 py-4 bg-green-500 hover:bg-green-400 text-white font-black rounded-full hover:-translate-y-1 transition-all shadow-lg">
+                            <i class="fa-brands fa-whatsapp text-xl"></i> Message on WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <footer id="main-footer"></footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Set WhatsApp link dynamically
+        const num = siteData.phone.replace(/[^\d]/g, '');
+        const msg = encodeURIComponent('Hi! I checked your pricing page and would like a free consultation for my business website.');
+        document.getElementById('pricing-wa-cta').href = `https://wa.me/${num}?text=${msg}`;
+    </script>
+</body>
+</html>

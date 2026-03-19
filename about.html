@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Vaaradi Web Studio</title>
+    <link rel="icon" type="image/png" href="icon.png?v=2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#8b5cf6',
+                        accent: '#22d3ee',
+                        'bg-dark': '#0f172a',
+                        'bg-light': '#f5f7fb'
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="data.js"></script>
+    <script src="services.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-black dark:text-slate-100 transition-colors duration-300">
+    <header id="main-header"></header>
+    
+    <main>
+        <section id="about-content"></section>
+        <script>
+function renderAbout() {
+    const container = document.getElementById('about-content');
+    if (!container) return;
+
+    container.innerHTML = `
+        <div class="max-w-[1100px] mx-auto px-6 py-24 space-y-28">
+
+            <!-- Hero row -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal reveal-left space-y-8">
+                    <h1 class="text-5xl md:text-7xl font-black uppercase tracking-tighter dark:text-white leading-none">
+                        Driven by <span class="text-shimmer">Design</span>,<br>Powered by <span class="text-violet-600">Code</span>.
+                    </h1>
+                    <p class="text-xl text-gray-500 dark:text-slate-400 leading-relaxed font-medium">
+                        At ${siteData.name}, we don't just build websites; we craft digital experiences that redefine how businesses connect with their audience. Founded on the principle that premium aesthetics and high-performance engineering should never be compromised.
+                    </p>
+                    <div class="flex gap-12 pt-4">
+                        <div class="reveal reveal-delay-1">
+                            <p class="text-5xl font-black dark:text-white">
+                                <span data-count="10" data-suffix="+">10+</span>
+                            </p>
+                            <p class="text-sm font-bold text-gray-400 uppercase tracking-widest pt-1">Projects Delivered</p>
+                        </div>
+                        <div class="reveal reveal-delay-2">
+                            <p class="text-5xl font-black dark:text-white">
+                                <span data-count="99" data-suffix="%">99%</span>
+                            </p>
+                            <p class="text-sm font-bold text-gray-400 uppercase tracking-widest pt-1">Client Satisfaction</p>
+                        </div>
+                        <div class="reveal reveal-delay-3">
+                            <p class="text-5xl font-black dark:text-white">
+                                <span data-count="30" data-suffix="d">30d</span>
+                            </p>
+                            <p class="text-sm font-bold text-gray-400 uppercase tracking-widest pt-1">Avg Delivery</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal reveal-right relative group">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-blue-600 to-violet-600 rounded-3xl blur opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800"
+                         class="relative rounded-3xl w-full h-[480px] object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                         alt="Studio Space">
+                </div>
+            </div>
+
+            <!-- Values row -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card-tilt reveal reveal-delay-1 p-10 rounded-3xl bg-white dark:bg-slate-800/50 border border-gray-100 dark:border-slate-800 space-y-4 hover:border-blue-500/40 transition-colors">
+                    <div class="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-lg">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-2xl font-black uppercase tracking-tight dark:text-white">Our Mission</h3>
+                    <p class="text-gray-500 dark:text-slate-400 leading-relaxed">To empower ambitious brands with cutting-edge technology and world-class design that stands out in a crowded digital landscape.</p>
+                </div>
+                <div class="card-tilt reveal reveal-delay-2 p-10 rounded-3xl bg-white dark:bg-slate-800/50 border border-gray-100 dark:border-slate-800 space-y-4 hover:border-violet-500/40 transition-colors">
+                    <div class="w-12 h-12 rounded-xl bg-violet-600 flex items-center justify-center text-white shadow-lg">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3 class="text-2xl font-black uppercase tracking-tight dark:text-white">The Team</h3>
+                    <p class="text-gray-500 dark:text-slate-400 leading-relaxed">A collective of visionary designers and obsessed engineers working together to turn complex challenges into elegant realities.</p>
+                </div>
+                <div class="card-tilt reveal reveal-delay-3 p-10 rounded-3xl bg-white dark:bg-slate-800/50 border border-gray-100 dark:border-slate-800 space-y-4 hover:border-cyan-500/40 transition-colors">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500 flex items-center justify-center text-white shadow-lg">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-2xl font-black uppercase tracking-tight dark:text-white">Our Values</h3>
+                    <p class="text-gray-500 dark:text-slate-400 leading-relaxed">Excellence in every pixel, absolute transparency with partners, and a relentless drive for innovation that never settles.</p>
+                </div>
+            </div>
+
+            <!-- CTA row -->
+            <div class="reveal text-center py-20 px-8 rounded-3xl bg-gradient-to-br from-blue-600 to-violet-700 shadow-2xl relative overflow-hidden">
+                <div class="float-slow absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+                <div class="float-mid absolute bottom-0 right-0 w-48 h-48 bg-white/5 rounded-full translate-x-1/2 translate-y-1/2"></div>
+                <div class="relative z-10">
+                    <h2 class="text-3xl md:text-4xl font-black text-white mb-4">Ready to Work With Us?</h2>
+                    <p class="text-blue-100 text-lg mb-8 max-w-xl mx-auto">Tell us about your business. We'll tell you exactly how we can grow it online.</p>
+                    <a href="contact.html" class="btn-pulse inline-flex items-center gap-2 px-10 py-4 bg-white text-blue-700 font-black rounded-full hover:bg-blue-50 hover:-translate-y-1 transition-all shadow-xl">
+                        <i class="fa-solid fa-handshake"></i> Start a Conversation
+                    </a>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+renderAbout();
+    </script>
+    </main>
+
+
+    <footer id="main-footer"></footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
