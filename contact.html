@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | Vaaradi Web Studio</title>
     <link rel="icon" type="image/png" href="icon.png?v=2">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -26,6 +29,7 @@
     </script>
     <script src="data.js"></script>
     <script src="services.js"></script>
+    <script src="projects.js"></script>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-black dark:text-slate-100 transition-colors duration-300">
     <header id="main-header"></header>
@@ -98,14 +102,28 @@ function renderContact() {
 
     document.getElementById('contact-form')?.addEventListener('submit', (e) => {
         e.preventDefault();
-        const name = document.getElementById('contact-name').value;
-        const email = document.getElementById('contact-email').value;
-        const message = document.getElementById('contact-message').value;
+        const nameEl = document.getElementById('contact-name');
+        const emailEl = document.getElementById('contact-email');
+        const messageEl = document.getElementById('contact-message');
+        
+        const name = nameEl.value;
+        const email = emailEl.value;
+        const message = messageEl.value;
         
         const whatsappNumber = siteData.phone.replace(/\D/g, '');
         const formattedMessage = encodeURIComponent(`*New Inquiry from Website*\n\n*Name:* ${name}\n*Email:* ${email}\n*Message:* ${message}`);
         
         window.open(`https://wa.me/${whatsappNumber}?text=${formattedMessage}`, '_blank');
+
+        // Show success notification
+        if (typeof showNotification === 'function') {
+            showNotification('Opening WhatsApp... Message ready to send!');
+        }
+
+        // Clear form
+        nameEl.value = '';
+        emailEl.value = '';
+        messageEl.value = '';
     });
 
     setTimeout(() => {

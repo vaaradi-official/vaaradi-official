@@ -36,6 +36,7 @@ function initApp() {
     setupThemeToggle();
     setupEmailLinks();
     setupNavScroll();
+    setupPreFetching();
     
     // Global fade-in
     requestAnimationFrame(() => document.body.classList.add('page-ready'));
@@ -121,6 +122,12 @@ window.addEventListener('popstate', async () => {
 async function navigateTo(url, isPopState = false) {
     const mainEl = document.querySelector('main');
     
+    // Check cache first
+    if (window.pageCache && window.pageCache[url]) {
+        renderPageFromHtml(window.pageCache[url], url, isPopState);
+        return;
+    }
+
     // Fade out main content
     mainEl.classList.add('page-exit');
     
@@ -135,43 +142,69 @@ async function navigateTo(url, isPopState = false) {
         const response = await fetch(url);
         const html = await response.text();
         
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-        
-        const newMain = doc.querySelector('main');
-        if (newMain) {
-            // Wait for fade out animation to finish before swapping DOM
-            await new Promise(r => setTimeout(r, 200));
-            
-            mainEl.innerHTML = newMain.innerHTML;
-            
-            // Execute any script tags found in the new main content
-            const scripts = mainEl.querySelectorAll('script');
-            scripts.forEach(oldScript => {
-                const newScript = document.createElement('script');
-                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
-                newScript.textContent = oldScript.textContent;
-                oldScript.parentNode.replaceChild(newScript, oldScript);
-            });
-            document.title = doc.title;
-            
-            if (!isPopState) {
-                window.history.pushState({}, '', url);
-            }
-            
-            initPageStructure(url);
-            
-            // Wait a tiny bit for render to finish, then fade back in
-            requestAnimationFrame(() => {
-                requestAnimationFrame(() => {
-                    mainEl.classList.remove('page-exit');
-                });
-            });
-        }
+        // Cache it
+        window.pageCache = window.pageCache || {};
+        window.pageCache[url] = html;
+
+        renderPageFromHtml(html, url, isPopState);
     } catch (err) {
         console.error('SPA Navigation Error:', err);
         window.location.href = url; // fallback
     }
+}
+
+function renderPageFromHtml(html, url, isPopState) {
+    const mainEl = document.querySelector('main');
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    
+    const newMain = doc.querySelector('main');
+    if (newMain) {
+        mainEl.innerHTML = newMain.innerHTML;
+        
+        // Execute scripts
+        const scripts = mainEl.querySelectorAll('script');
+        scripts.forEach(oldScript => {
+            const newScript = document.createElement('script');
+            Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
+            newScript.textContent = oldScript.textContent;
+            oldScript.parentNode.replaceChild(newScript, oldScript);
+        });
+
+        document.title = doc.title;
+        
+        if (!isPopState) {
+            window.history.pushState({}, '', url);
+        }
+        
+        initPageStructure(url);
+        
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                mainEl.classList.remove('page-exit');
+            });
+        });
+    }
+}
+
+// ── PRE-FETCHING ENGINE ────────────────────────────────────
+function setupPreFetching() {
+    document.addEventListener('mouseover', (e) => {
+        const link = e.target.closest('a[href]');
+        if (!link) return;
+        const href = link.getAttribute('href');
+        if (!href || href.startsWith('#') || href.startsWith('http') ||
+            href.startsWith('mailto') || href.startsWith('tel') ||
+            link.target === '_blank') return;
+
+        window.pageCache = window.pageCache || {};
+        if (window.pageCache[href]) return;
+
+        // Fetch and cache
+        fetch(href).then(res => res.text()).then(html => {
+            window.pageCache[href] = html;
+        }).catch(() => {});
+    }, { passive: true });
 }
 
 // ── SCROLL REVEAL ENGINE ───────────────────────────────────
@@ -468,12 +501,32 @@ function setupEmailLinks() {
     document.addEventListener('click', (e) => {
         const mailLink = e.target.closest('a[href^="mailto:"]');
         if (mailLink) {
-            console.log('Email link clicked:', mailLink.getAttribute('href'));
-            // Remove e.preventDefault() to let the native link work if possible, 
-            // but also try manual redirection as a fallback.
-            // window.location.href = mailLink.getAttribute('href');
+            // Ensure email links aren't blocked by any of our custom handling
+            // Direct window.location.href helps on some mobile browsers
+            const href = mailLink.getAttribute('href');
+            console.log('Handled email link:', href);
+            // No preventDefault() so browser handles natively as primary 
+            // but fallback to direct location if needed
+            setTimeout(() => {
+                if (!document.hasFocus()) return; // Already left page
+                window.location.href = href;
+            }, 500);
         }
     });
+}
+
+function showNotification(message, type = 'success') {
+    const toast = document.createElement('div');
+    toast.className = `fixed bottom-24 left-1/2 -translate-x-1/2 px-8 py-4 rounded-2xl text-white font-black shadow-2xl z-[10000] flex items-center gap-3 animate-slide-up ${type === 'success' ? 'bg-green-600' : 'bg-red-600'}`;
+    toast.innerHTML = `
+        <i class="fa-solid ${type === 'success' ? 'fa-check-circle' : 'fa-circle-exclamation'}"></i>
+        ${message}
+    `;
+    document.body.appendChild(toast);
+    setTimeout(() => {
+        toast.classList.add('animate-slide-down');
+        setTimeout(() => toast.remove(), 500);
+    }, 3000);
 }
 
 function updateThemeIcon(isLight) {
