@@ -261,7 +261,13 @@ function setupNavScroll() {
 
 function renderHeader() {
     const header = document.getElementById('main-header');
-    if (!header) return;
+    if (!header || header.dataset.rendered === 'true') {
+        // Just update active link if already rendered
+        const currentPage = window.location.pathname.split("/").pop() || 'index.html';
+        updateNavLinks(currentPage);
+        return;
+    }
+    header.dataset.rendered = 'true';
 
     const navItems = [
         { name: 'Home', link: 'index.html' },
@@ -277,7 +283,7 @@ function renderHeader() {
         <header class="sticky top-0 z-50 bg-white/70 dark:bg-black/70 backdrop-blur-xl border-b border-gray-200/50 dark:border-slate-800/50 transition-all duration-300">
             <nav class="max-w-[1100px] mx-auto px-6 h-28 flex justify-between items-center">
                 <a href="index.html" class="flex items-center group">
-                    <img src="logo.png" alt="${siteData.name}" class="h-24 w-auto group-hover:scale-105 transition-transform duration-300">
+                    <img src="logo.png" alt="${siteData.name}" class="h-24 w-auto group-hover:scale-105 transition-transform duration-300" loading="lazy">
                 </a>
                 
                 <ul class="hidden md:flex items-center gap-8">
@@ -306,7 +312,8 @@ function renderHeader() {
 
 function renderFooter() {
     const footer = document.getElementById('main-footer');
-    if (!footer) return;
+    if (!footer || footer.dataset.rendered === 'true') return;
+    footer.dataset.rendered = 'true';
 
     const whatsappNumber = siteData.phone.replace(/[^\d]/g, '');
     const whatsappMsg = encodeURIComponent('Hi! I found your website and I\'m interested in growing my business online. Can we talk?');
@@ -316,7 +323,7 @@ function renderFooter() {
             <div class="max-w-[1100px] mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
                 <div class="space-y-8">
                     <a href="index.html" class="flex items-center group">
-                        <img src="logo.png" alt="${siteData.name}" class="h-24 w-auto group-hover:scale-105 transition-transform duration-300">
+                        <img src="logo.png" alt="${siteData.name}" class="h-24 w-auto group-hover:scale-105 transition-transform duration-300" loading="lazy">
                     </a>
                     <p class="text-gray-500 dark:text-slate-400 leading-relaxed text-sm">
                         ${siteData.tagline}

@@ -63,7 +63,7 @@ function renderPortfolio() {
                         <!-- Image -->
                         <div class="relative overflow-hidden h-52 shrink-0">
                             <a href="${work.link}" target="_blank" rel="noopener">
-                                <img src="${work.img}" alt="${work.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                <img src="${work.img}" alt="${work.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
                             </a>
                             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/50 to-transparent pointer-events-none"></div>
                             <span class="absolute bottom-4 left-4 text-xs font-black text-white uppercase tracking-widest bg-blue-600 px-3 py-1 rounded-full">${work.cat}</span>
