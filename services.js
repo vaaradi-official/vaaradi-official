@@ -6,7 +6,7 @@ const servicesData = [
     items: [
       {
         title: "Starter Website",
-        price: "Starting ₹7,000",
+        price: "Starting ₹6,999",
         features: [
           "<b>3–5 Pages</b> – Basic pages such as Home, About, Services and Contact",
           "<b>Responsive Design</b> – Website works properly on mobile phones and computers",
@@ -17,7 +17,7 @@ const servicesData = [
       },
       {
         title: "Business Website",
-        price: "Starting ₹20,000",
+        price: "Starting ₹19,999",
         features: [
           "<b>5–10 Pages</b> – More pages for services, team, portfolio etc.",
           "<b>Modern UI Design</b> – Professional design that builds trust",
@@ -28,7 +28,7 @@ const servicesData = [
       },
       {
         title: "Corporate Website",
-        price: "Starting ₹40,000",
+        price: "Starting ₹39,999",
         features: [
           "<b>Custom Design</b> – Unique design tailored for your brand",
           "<b>Advanced UI</b> – Animations and better user experience",
@@ -47,17 +47,17 @@ const servicesData = [
     items: [
       {
         title: "Basic Online Store",
-        price: "₹60,000",
+        price: "₹59,999",
         meaning: "Product pages, shopping cart, and online payment system."
       },
       {
         title: "Professional Store",
-        price: "₹1,20,000",
+        price: "₹1,19,999",
         meaning: "Inventory management, admin dashboard, order tracking."
       },
       {
         title: "Marketplace Platform",
-        price: "₹2,50,000+",
+        price: "₹2,49,999+",
         meaning: "Multi‑vendor platform where multiple sellers can list and sell products."
       }
     ]
@@ -70,17 +70,17 @@ const servicesData = [
     items: [
       {
         title: "Startup MVP",
-        price: "₹1,00,000",
+        price: "₹99,999",
         meaning: "A simple working product for startups with login system, database, and backend logic."
       },
       {
         title: "Business Platform",
-        price: "₹3,00,000",
+        price: "₹2,99,999",
         meaning: "Custom platform with admin dashboard, user roles, and integrations with external services."
       },
       {
         title: "Enterprise Platform",
-        price: "₹10,00,000+",
+        price: "₹9,99,999+",
         meaning: "Large scalable systems built for high traffic and complex business operations."
       }
     ]
@@ -93,17 +93,17 @@ const servicesData = [
     items: [
       {
         title: "Basic Support",
-        price: "₹2,000 – ₹5,000",
+        price: "₹3,499",
         meaning: "Bug fixes and website monitoring."
       },
       {
         title: "Business Support",
-        price: "₹8,000 – ₹15,000",
+        price: "₹11,499",
         meaning: "Content updates, performance checks, minor improvements."
       },
       {
         title: "Premium Support",
-        price: "₹20,000+",
+        price: "₹19,999",
         meaning: "Priority support and ongoing feature improvements."
       }
     ]
@@ -116,17 +116,17 @@ const servicesData = [
     items: [
       {
         title: "Domain Registration",
-        price: "₹500 – ₹2,000 / year",
+        price: "₹1,249 / year",
         meaning: "This is your website name (example: yourbusiness.com)"
       },
       {
         title: "Cloud Hosting",
-        price: "₹3,000 – ₹10,000 / year",
+        price: "₹6,499 / year",
         meaning: "Servers that store and run your website"
       },
       {
         title: "Deployment Setup",
-        price: "Starting ₹8,000",
+        price: "Starting ₹7,999",
         meaning: "Technical setup to launch the website online"
       }
     ]
